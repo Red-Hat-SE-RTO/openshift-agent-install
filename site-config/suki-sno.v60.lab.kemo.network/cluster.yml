@@ -1,6 +1,3 @@
-# Use Site Config
-use_site_configs: false
-
 # pull_secret path is the path to the pull-secret for the cluster
 pull_secret_path: ~/ocp-install-pull-secret.json
 
@@ -9,41 +6,31 @@ pull_secret_path: ~/ocp-install-pull-secret.json
 # ssh_public_key_path: ~/.ssh/id_rsa.pub
 
 # Cluster metadata
-base_domain: example.com
-cluster_name: ocp4
+base_domain: v60.lab.kemo.network
+cluster_name: suki-sno
 
 # platform_type is the type of platform to use for the cluster (baremetal, vsphere, none)
 # must be none for SNO
-platform_type: vsphere
-vcenter_host: "portal.example.com"
-vcenter_username: "administrator@example.com"
-vcenter_password: "example_password"
-vcenter_datacenter: "Datacenter"
-vcenter_default_datastore: "Datastore"
-vcenter_cluster: "Cluster"
-vcenter_network: "VM Network"
-vcenter_folder_name: "ocp4"
-vcenter_disk_type: thin
+platform_type: none
 
 # VIPs - set as a list in case this is a dual-stack cluster
 api_vips:
-  -  192.168.180.4
+  - 192.168.60.46
 
 app_vips:
-  -  192.168.180.5
+  - 192.168.60.46
 
 # Optional NTP Servers
 ntp_servers:
-  - 0.rhel.pool.ntp.org
-  - 1.rhel.pool.ntp.org
+  - ntp.kemo.labs
 
 # Optional DNS Server definitions
 dns_servers:
-  - 192.168.180.9
-  - 192.168.180.10
+  - 192.168.42.9
+  - 192.168.42.10
 dns_search_domains:
-  - example.com
-  - example.network
+  - kemo.labs
+  - kemo.network
 
 # cluster_network_cidr is the overall CIDR space for the Pods in the cluster
 cluster_network_cidr: 10.128.0.0/14
@@ -56,28 +43,13 @@ service_network_cidrs:
 
 # machine_network_cidr is the CIDR space for the Machines in the cluster
 machine_network_cidrs:
-  - 192.168.180.0/23
+  - 192.168.60.0/23
 
 # networkType is the type of network to use for the cluster (OpenShiftSDN, OVNKubernetes)
 network_type: OVNKubernetes
 
 # rendezvous_ip is the IP address of the node that will be used for the bootstrap node
-rendezvous_ip: 192.168.180.21
-
-# Optional Outbound Proxy Configuration
-# proxy:
-#   http_proxy: http://192.168.42.31:3128
-#   https_proxy: http://192.168.42.31:3128
-#   no_proxy:
-#     - .svc.cluster.local
-#     - 192.168.0.0/16
-#     - .example.network
-#     - .example.labs
-
-# Optional Additional CA Root Trust Bundle
-
-create_ztp_manifests: false
-#cluster_architecture: x86_64 # x86_64 | s390x | ppc64le | aarch64 | multi
+rendezvous_ip: 192.168.60.46
 
 # Optional Disconnected Registry Mirror configuration
 disconnected_registries:

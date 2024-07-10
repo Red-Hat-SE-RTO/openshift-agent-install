@@ -10,28 +10,28 @@ pull_secret_path: ~/ocp-install-pull-secret.json
 
 # Cluster metadata
 base_domain: example.com
-cluster_name: ocp4
+cluster_name: sno1
 
 # platform_type is the type of platform to use for the cluster (baremetal, vsphere, none)
 # must be none for SNO
-platform_type: baremetal
+platform_type: none
 
 # VIPs - set as a list in case this is a dual-stack cluster
 api_vips:
-  -  192.168.180.4
+  -  192.168.50.21
 
 app_vips:
-  -  192.168.180.5
+  -  192.168.50.21
 
 # Optional NTP Servers
 ntp_servers:
-  - 0.rhel.pool.ntp.org
-  - 1.rhel.pool.ntp.org
+  - 216.239.35.0 #0.rhel.pool.ntp.org
+  - 216.239.35.4 #1.rhel.pool.ntp.org
 
 # Optional DNS Server definitions
 dns_servers:
-  - 192.168.180.9
-  - 192.168.180.10
+  - 192.168.122.158
+  - 1.1.1.1
 dns_search_domains:
   - example.com
   - example.network
@@ -47,13 +47,13 @@ service_network_cidrs:
 
 # machine_network_cidr is the CIDR space for the Machines in the cluster
 machine_network_cidrs:
-  - 192.168.180.0/23
+  - 192.168.50.0/24
 
 # networkType is the type of network to use for the cluster (OpenShiftSDN, OVNKubernetes)
 network_type: OVNKubernetes
 
 # rendezvous_ip is the IP address of the node that will be used for the bootstrap node
-rendezvous_ip: 192.168.180.21
+rendezvous_ip: 192.168.50.21
 
 # Optional Outbound Proxy Configuration
 # proxy:
