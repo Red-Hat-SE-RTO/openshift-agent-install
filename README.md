@@ -597,3 +597,6 @@ nodes:
             next-hop-interface: bond0.70
             table-id: 254
 ```
+
+## Links: 
+* [Adding a node via the node-joiner tool](https://github.com/openshift/installer/blob/master/docs/user/agent/add-node/add-nodes.md)
