@@ -212,7 +212,7 @@ for node_name in $node_names; do
 done
 
 # Verify the installation if Redfish is enabled
-if [ "$USE_REDFISH" == true]; then
+if [ "$USE_REDFISH" == true ]; then
     echo "Verifying Redfish registration..."
     registered_systems=$(curl -s http://localhost:8000/redfish/v1/Systems)
     echo "Registered systems:"
